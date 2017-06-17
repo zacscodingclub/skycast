@@ -3,14 +3,6 @@ import React, { Component } from 'react';
 class Forecast extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      location: props.match.params.location
-    }
-  }
-
-  componentDidUpdate() {
-    this.setState({ location: this.props.match.params.location });
   }
 
   render() {

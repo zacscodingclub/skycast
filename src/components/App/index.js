@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      redirect: false
+      location: null
     }
 
     this.handleSearch = this.handleSearch.bind(this);
@@ -19,10 +19,12 @@ class App extends Component {
 
   async handleSearch(term) {
     const g = new GeolocationService(term);
-    const latLng = await g.geocode();
-    this.saveLocationToLocalStorage(term, latLng);
-    const nextPath = `/forecast/${latLng.lat},${latLng.lng}`;
-    this.props.history.push(nextPath);
+    const found = await g.geocode();
+    this.setState({ location: found });
+    debugger;
+    // this.saveLocationToLocalStorage(term, latLng);
+    // const nextPath = `/forecast/${latLng.lat},${latLng.lng}`;
+    // this.props.history.push(nextPath);
   }
 
   saveLocationToLocalStorage(term, latLng) {
