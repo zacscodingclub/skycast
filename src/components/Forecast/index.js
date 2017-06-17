@@ -9,6 +9,10 @@ class Forecast extends Component {
     }
   }
 
+  componentDidUpdate() {
+    this.setState({ location: this.props.match.params.location });
+  }
+
   render() {
     return (
       <div className="App">

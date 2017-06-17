@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
 import './Search.css';
 
 class Search extends Component {
@@ -7,7 +6,7 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      search: ''
+      searchTerm: ''
     }
 
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -16,13 +15,15 @@ class Search extends Component {
 
   handleOnChange = (e) => {
     this.setState({
-      search: e.target.value
+      searchTerm: e.target.value
     });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleSearch(this.state.search);
+    const term = this.state.searchTerm;
+    this.setState({ searchTerm: '' });
+    this.props.handleSearch(term);
   }
 
   render() {
