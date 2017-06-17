@@ -1,0 +1,22 @@
+.header-search {
+  padding-top: 20px;
+  position: absolute;
+  right: 20px;
+}
+
+.search-input {
+  width: 250px;
+  height: 35px;
+  border: none;
+  border-radius: 15px;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+}
+
+.search-submit {
+  background-color: skyblue;
+  padding: 10px;
+  border-radius: 15px;
+  margin-left: 10px;
+}
