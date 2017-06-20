@@ -12,9 +12,9 @@ class GeolocationService {
 
   geocode() {
     return fetch(this.requestURL())
-        .then(response => response.json())
-        .then(data => data.results[0])
-        .catch(err => console.log(err));
+      .then(response => response.json())
+      .then(data => data.results[0])
+      .catch(err => console.log(err));
   }
 }
 

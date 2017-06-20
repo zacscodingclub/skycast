@@ -20,3 +20,7 @@
   border-radius: 15px;
   margin-left: 10px;
 }
+
+input:focus {
+  outline: 0;
+}

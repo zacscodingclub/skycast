@@ -22,12 +22,16 @@ class App extends Component {
     const found = await g.geocode();
     this.setState({ location: found });
     debugger;
-    // this.saveLocationToLocalStorage(term, latLng);
-    // const nextPath = `/forecast/${latLng.lat},${latLng.lng}`;
-    // this.props.history.push(nextPath);
+    this.saveLocationToLocalStorage(term, found.geometry.location);
+    const nextPath = `/forecast/${found.geometry.location.lat},${found.geometry.location.lng}`;
+    this.props.history.push(nextPath);
   }
 
   saveLocationToLocalStorage(term, latLng) {
+    // let previousSearches = JSON.parse(localStorage.getItem('forecastStorage'));
+    // debugger;
+    //
+    // localStorage.setItem('forecastStorage')
     console.log(`SAVING ${term} and (${latLng.lat}, ${latLng.lng}) to local storage`);
   }
 
@@ -35,7 +39,7 @@ class App extends Component {
     return (
       <div>
         <Header handleSearch={this.handleSearch} />
-        <Route exact path="/forecast/:location" component={Forecast} />
+        <Route exact path="/forecast/:location" render={() => <Forecast currentLocation={this.state.location} />} />
       </div>
     );
   }
