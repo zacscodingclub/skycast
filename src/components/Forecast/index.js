@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import fetchJSONP from 'fetch-jsonp';
 import ForecastService from '../../services/ForecastService';
 import GeolocationService from '../../services/GeolocationService';
+import CurrentWeather from '../CurrentWeather/CurrentWeather';
+
 import loading from '../../loading.svg';
 
 class Forecast extends Component {
@@ -10,6 +12,8 @@ class Forecast extends Component {
 
     this.getLocation = this.getLocation.bind(this);
     this.getForecast = this.getForecast.bind(this);
+    this.formattedLocation = this.formattedLocation.bind(this);
+    this.filterLocation = this.filterLocation.bind(this);
 
     this.state = {
       fetchingData: true,
@@ -40,21 +44,36 @@ class Forecast extends Component {
         .then(data => this.setState({ weatherData: data }))
         .catch(err => console.log(err))
 
-      debugger;
-
     this.setState({ fetchingData: false });
+  }
+
+  formattedLocation() {
+    let city = this.filterLocation("locality");
+    let state = this.filterLocation("administrative_area_level_1");
+
+    return [city.long_name, state.short_name].join(', ');
+  }
+
+  filterLocation(type) {
+    const { address_components } = this.state.currentLocation;
+
+    return address_components.filter(name => name.types.includes(type) )[0];
   }
 
   render() {
     const { fetchingData, currentLocation, weatherData } = this.state;
-
+    debugger;
     return (
       <div className="App">
         {
           fetchingData ?
             <img src={loading} alt="loading spinner" />
           :
-            <h2>Forecast for  {weatherData.latitude}</h2>
+          <div>
+            <h2>Forecast for  {this.formattedLocation()}</h2>
+
+            <CurrentWeather data={weatherData.currently} />
+          </div>
         }
       </div>
     );
