@@ -3,6 +3,8 @@ import fetchJSONP from 'fetch-jsonp';
 import ForecastService from '../../services/ForecastService';
 import GeolocationService from '../../services/GeolocationService';
 import CurrentWeather from '../CurrentWeather/CurrentWeather';
+import Weekly from '../Weekly';
+import GraphContainer from '../GraphContainer';
 
 import loading from '../../loading.svg';
 
@@ -71,8 +73,13 @@ class Forecast extends Component {
           :
           <div>
             <h2>Forecast for  {this.formattedLocation()}</h2>
-
-            <CurrentWeather data={weatherData.currently} />
+            <div className="top-row">
+              <CurrentWeather data={weatherData.currently} />
+              <GraphContainer minutelyData={weatherData.minutely} hourlyData={weatherData.hourly} />
+            </div>
+            <div>
+              <Weekly data={weatherData.daily} />
+            </div>
           </div>
         }
       </div>

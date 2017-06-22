@@ -6,3 +6,12 @@ svg path,
 svg rect{
   fill: #FF6700;
 }
+
+.box {
+  border: 1px solid black;
+  margin: 25px;
+}
+
+.top-row {
+  display: flex;
+}

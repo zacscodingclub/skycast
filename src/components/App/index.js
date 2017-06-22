@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       location: null
     }
-    console.log(process.env.REACT_APP_GMAPS_KEY);
+
     this.handleSearch = this.handleSearch.bind(this);
     this.saveLocationToLocalStorage = this.saveLocationToLocalStorage.bind(this);
   }
@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <div>
         <Header handleSearch={this.handleSearch} />
-        <Route exact path="/forecast/:location" render={() => <Forecast currentLocation={this.state.location} />} />
+        <Route exact path="/forecast/:location" render={() => <Forecast currentLocation={this.state.location} key={this.state.key} />} />
       </div>
     );
   }

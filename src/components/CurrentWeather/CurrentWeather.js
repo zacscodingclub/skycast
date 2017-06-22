@@ -5,7 +5,7 @@ const CurrentWeather = (props) => {
   const { apparentTemperature, temperature, summary, cloudCover, dewPoint, precipIntensity, precipProbability, time, windBearing, windGust, windSpeed } = props.data;
 
   return (
-    <div className="box">
+    <div className="box current-weather">
       <h3>CurrentWeather</h3>
       <h4>{ summary }</h4>
       <ul className="list">
