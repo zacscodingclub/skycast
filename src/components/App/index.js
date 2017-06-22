@@ -21,7 +21,7 @@ class App extends Component {
     const g = new GeolocationService(term);
     const found = await g.geocode();
     this.setState({ location: found });
-    debugger;
+
     this.saveLocationToLocalStorage(term, found.geometry.location);
     const nextPath = `/forecast/${found.geometry.location.lat},${found.geometry.location.lng}`;
     this.props.history.push(nextPath);

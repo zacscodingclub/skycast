@@ -3,7 +3,7 @@ import './CurrentWeather.css';
 
 const CurrentWeather = (props) => {
   const { apparentTemperature, temperature, summary, cloudCover, dewPoint, precipIntensity, precipProbability, time, windBearing, windGust, windSpeed } = props.data;
-  debugger
+
   return (
     <div className="box">
       <h3>CurrentWeather</h3>
