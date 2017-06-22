@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       location: null
     }
-
+    console.log(process.env.REACT_APP_GMAPS_KEY);
     this.handleSearch = this.handleSearch.bind(this);
     this.saveLocationToLocalStorage = this.saveLocationToLocalStorage.bind(this);
   }
