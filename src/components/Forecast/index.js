@@ -63,7 +63,7 @@ class Forecast extends Component {
   }
 
   render() {
-    const { fetchingData, currentLocation, weatherData } = this.state;
+    const { fetchingData, weatherData } = this.state;
 
     return (
       <div className="App">

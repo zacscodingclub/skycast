@@ -1,6 +1,7 @@
 .day {
   background-color: #ccc;
   margin: 5px;
+  border-radius: 10px;
 }
 
 .day-icon {

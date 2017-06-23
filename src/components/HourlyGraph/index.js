@@ -21,6 +21,11 @@ class HourlyGraph extends Component {
     }
 
     this.timeConverter = this.timeConverter.bind(this);
+    this.tickValues = this.tickValues.bind(this);
+  }
+
+  tickValues() {
+    return 
   }
 
   timeConverter(UNIX_timestamp){
@@ -51,7 +56,12 @@ class HourlyGraph extends Component {
     return (
       <div className="chart">
         <strong>{this.props.data.summary}</strong>
-        <Graph {...this.state} timeConverter={this.timeConverter} tickFormatter={v => v + "°F"} />
+        <Graph
+          {...this.state}
+          timeConverter={this.timeConverter}
+          tickFormatter={v => v + "°F"}
+          tickValues={this.tickValues}
+        />
       </div>
     )
   }

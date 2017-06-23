@@ -1,0 +1,25 @@
+.recent-searches {
+  position: absolute;
+  right: 40px;
+  top: 55px;
+  display: flex;
+}
+.recent-searches p {
+  color: white;
+  font-size: .75em;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.recent-searches-list {
+  list-style-type: none;
+  padding-left: 20px;
+}
+.recent-searches-list li {
+  display: inline;
+  padding-right: 5px;
+  font-size: .7em;
+}
+
+.recent-searches-list li a {
+  color: #989898;
+}

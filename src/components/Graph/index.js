@@ -11,10 +11,6 @@ import {
 const FlexibleXYPlot = makeWidthFlexible(XYPlot);
 
 class Graph extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return(
       <FlexibleXYPlot
@@ -34,7 +30,8 @@ class Graph extends Component {
         <YAxis
           orientation="left"
           title={this.props.series[0].title}
-          tickFormat={this.props.tickFormatter}
+          tickFormat={v => this.props.tickFormatter(v)}
+          tickValues={this.props.tickValues()}
         />
       </FlexibleXYPlot>
     )

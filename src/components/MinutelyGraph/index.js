@@ -16,6 +16,7 @@ class MinutelyGraph extends Component {
     }
 
     this.timeConverter = this.timeConverter.bind(this);
+    this.tickValues = this.tickValues.bind(this);
     this.tickFormatter = this.tickFormatter.bind(this);
     this.padLeft = this.padLeft.bind(this);
   }
@@ -32,19 +33,25 @@ class MinutelyGraph extends Component {
     return `${hours}:${minutes}`;
   }
 
-  tickFormatter(v) {
-    return (v *100).toString() + "%"
+  tickValues() {
+    return [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
   }
 
-  tic
+  tickFormatter(v) {
+    return v.toString() + "%";
+  }
+
   render() {
     return (
       <div className="chart">
         <strong>{this.props.data.summary}</strong>
-        <Graph {...this.state}
+        <Graph
+          {...this.state}
           timeConverter={this.timeConverter}
           tickLabelAngle={-90}
-          tickFormatter={this.tickFormatter}/>
+          tickFormatter={this.tickFormatter}
+          tickValues={this.tickValues}
+        />
       </div>
     )
   }

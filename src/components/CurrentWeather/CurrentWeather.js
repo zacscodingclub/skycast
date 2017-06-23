@@ -24,13 +24,13 @@ const formatMPH = (value) => {
 }
 
 const formatDegreeToCompass = (degree) => {
-    const val = parseInt((degree/22.5)+.5);
+    const val = parseInt((degree/22.5)+.5, 10);
     const arr = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
     return arr[(val % 16)]
 }
 
 const CurrentWeather = (props) => {
-  const { apparentTemperature, temperature, icon, humidity, summary, cloudCover, dewPoint, precipIntensity, precipProbability, time, uvIndex, windBearing, windGust, windSpeed } = props.data;
+  const { apparentTemperature, temperature, icon, humidity, summary, cloudCover, dewPoint, precipProbability, uvIndex, windBearing, windGust, windSpeed } = props.data;
 
   return (
     <div className="box" style={{ 'width': '33%'}}>

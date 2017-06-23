@@ -24,9 +24,16 @@ class GraphContainer extends Component {
 
   getAttribute(time, attr) {
     return this.props[time].data.map((item, index) => {
-      return {
-        x: item.time,
-        y: item[attr],
+      if (item[attr] < 1.0) {
+        return {
+          x: item.time,
+          y: item[attr] * 100
+        }
+      } else {
+        return {
+          x: item.time,
+          y: item[attr]
+        }
       }
     });
   }
