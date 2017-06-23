@@ -23,13 +23,13 @@ class GraphContainer extends Component {
 
   render() {
     return (
-      <div className="box graph-container">
+      <div className="graph-container">
         <div className="top-row graph-container-header">
           <div className="option" onClick={this.handleSelect} id="minute">
-            By Minute
+            <strong>By Minute</strong>
           </div>
           <div className="option" onClick={this.handleSelect} id="hour">
-            By Hour
+            <strong>By Hour</strong>
           </div>
         </div>
         <div className="graph-container-body">
