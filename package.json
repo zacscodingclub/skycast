@@ -13,7 +13,8 @@
     "react": "^15.6.1",
     "react-d3-basic": "^1.6.11",
     "react-dom": "^15.6.1",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "react-skycons": "^0.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

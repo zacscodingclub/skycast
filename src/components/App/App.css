@@ -9,9 +9,10 @@ svg rect{
 
 .box {
   border: 1px solid black;
-  margin: 25px;
+  margin: 0 25px;
 }
 
 .top-row {
   display: flex;
+  justify-content: center;
 }

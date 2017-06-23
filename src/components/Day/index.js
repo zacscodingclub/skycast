@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Skycons from 'react-skycons';
 import './Day.css';
 
 class Day extends Component {
@@ -7,6 +8,15 @@ class Day extends Component {
 
     this.formatDate = this.formatDate.bind(this);
     this.roundTemp = this.roundTemp.bind(this);
+    this.formatIcon = this.formatIcon.bind(this);
+  }
+
+  formatIcon(icon) {
+    if (icon.includes('-')) {
+      icon = icon.replace(/-/g, '_');
+    }
+
+    return icon.toUpperCase();
   }
 
   formatDate(time, options) {
@@ -18,8 +28,6 @@ class Day extends Component {
   roundTemp(temp) {
     return (temp | 2).toString() + "°F";
   }
-
-  // {  hour: '2-digit', minute: '2-digit' }
 
   render() {
     const { time, temperatureMax, temperatureMin, icon, sunriseTime, sunsetTime, windGust, precipProbability, precipType } = this.props;
@@ -33,6 +41,9 @@ class Day extends Component {
         <span><i>Sunset: </i>{this.formatDate(sunsetTime, {  'hour': '2-digit', 'minute': '2-digit' })}</span>
         <span><i>Winds up to: </i>{windGust}MPH</span>
         <span>{(precipProbability * 100) | 0}% chance of { precipType || "precipitation"}</span>
+        <div className="day-icon">
+          <Skycons color='white' icon={this.formatIcon(icon)} autoplay={true} />
+        </div>
       </div>
     )
   }
