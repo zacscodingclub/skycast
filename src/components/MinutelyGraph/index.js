@@ -10,19 +10,26 @@ class MinutelyGraph extends Component {
         {
           title: 'Precipitation',
           disabled: false,
-          data: this.props.getAttribute('hourlyData', 'precipProbability')
+          data: this.props.getAttribute('minutelyData', 'precipProbability')
         }
       ]
     }
 
     this.timeConverter = this.timeConverter.bind(this);
     this.tickFormatter = this.tickFormatter.bind(this);
+    this.padLeft = this.padLeft.bind(this);
   }
 
+  padLeft(str) {
+    return str.length < 2 ? '0' + str : str;
+  }
 
   timeConverter(UNIX_timestamp) {
     const d = new Date(UNIX_timestamp * 1000);
-    return d.toLocaleString('en-us', {  'hour': '2-digit', 'minute': '2-digit' });
+    const minutes = this.padLeft(d.getMinutes().toString());
+    const hours = this.padLeft(d.getHours().toString());
+
+    return `${hours}:${minutes}`;
   }
 
   tickFormatter(v) {

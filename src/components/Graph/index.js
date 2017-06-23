@@ -20,7 +20,8 @@ class Graph extends Component {
       <FlexibleXYPlot
         animation
         width={850}
-        height={425}>
+        height={425}
+        xType='time'>
         <HorizontalGridLines />
         <LineSeries
           data={this.props.series[0].data}
@@ -28,6 +29,7 @@ class Graph extends Component {
         <XAxis
           tickFormat={v => this.props.timeConverter(v)}
           tickLabelAngle={this.props.tickLabelAngle}
+          tickTotal={11}
         />
         <YAxis
           orientation="left"

@@ -72,7 +72,7 @@ class Forecast extends Component {
             <img src={loading} alt="loading spinner" />
           :
           <div>
-            <h2>Forecast for  {this.formattedLocation()}</h2>
+            <h1>Forecast for  {this.formattedLocation()}</h1>
             <div className="top-row">
               <CurrentWeather data={weatherData.currently} />
               <GraphContainer minutelyData={weatherData.minutely} hourlyData={weatherData.hourly} />
