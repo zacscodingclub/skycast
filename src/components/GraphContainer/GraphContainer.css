@@ -25,3 +25,8 @@
 .option:nth-child(1) {
   border-right: 1px solid black;
 }
+
+.chart {
+  margin-top: 30px;
+  margin-left: 40px;
+}

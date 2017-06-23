@@ -2,3 +2,9 @@
   background-color: #ccc;
   margin: 5px;
 }
+
+.day-icon {
+  display: block;
+  margin: 5px auto;
+  width: 150px;
+}

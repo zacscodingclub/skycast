@@ -35,15 +35,16 @@ class Day extends Component {
     return (
       <div className="day">
         <strong>{this.formatDate(time, { weekday: 'long'} )}</strong>
-        <span><i>Max: </i>{this.roundTemp(temperatureMax)}</span>
-        <span><i>Min: </i>{this.roundTemp(temperatureMin)}</span>
-        <span><i>Sunrise: </i>{this.formatDate(sunriseTime, {  'hour': '2-digit', 'minute': '2-digit' })}</span>
-        <span><i>Sunset: </i>{this.formatDate(sunsetTime, {  'hour': '2-digit', 'minute': '2-digit' })}</span>
-        <span><i>Winds up to: </i>{windGust}MPH</span>
-        <span>{(precipProbability * 100) | 0}% chance of { precipType || "precipitation"}</span>
         <div className="day-icon">
           <Skycons color='white' icon={this.formatIcon(icon)} autoplay={true} />
         </div>
+        <div>
+          <span>{this.roundTemp(temperatureMax)} | {this.roundTemp(temperatureMin)}</span>
+        </div>
+        <span><i>Sunrise: </i>{this.formatDate(sunriseTime, {  'hour': '2-digit', 'minute': '2-digit' })}</span>
+        <span><i>Sunset: </i>{this.formatDate(sunsetTime, {  'hour': '2-digit', 'minute': '2-digit' })}</span>
+        <span><i>Winds up to: </i>{windGust | 0} MPH</span>
+        <span>{(precipProbability * 100) | 0}% chance of { precipType || "precipitation"}</span>
       </div>
     )
   }

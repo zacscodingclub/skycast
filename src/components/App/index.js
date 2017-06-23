@@ -4,6 +4,7 @@ import GeolocationService from '../../services/GeolocationService';
 import Header from '../Header/Header';
 import Forecast from '../Forecast';
 import './App.css';
+import './react-vis.css';
 
 class App extends Component {
   constructor(props) {

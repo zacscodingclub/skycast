@@ -12,6 +12,7 @@ class GraphContainer extends Component {
     }
 
     this.handleSelect = this.handleSelect.bind(this);
+    this.getAttribute = this.getAttribute.bind(this);
   }
 
   handleSelect(e) {
@@ -19,6 +20,15 @@ class GraphContainer extends Component {
     const current = this.state.selected;
 
     if (clicked !== current) { this.setState({ selected: clicked })};
+  }
+
+  getAttribute(time, attr) {
+    return this.props[time].data.map((item, index) => {
+      return {
+        x: item.time,
+        y: item[attr],
+      }
+    });
   }
 
   render() {
@@ -34,9 +44,9 @@ class GraphContainer extends Component {
         </div>
         <div className="graph-container-body">
           { this.state.selected === "hour" ?
-            <HourlyGraph data ={this.props.hourlyData} />
+            <HourlyGraph data={this.props.hourlyData} getAttribute={this.getAttribute}/>
             :
-            <MinutelyGraph data={this.props.minutelyData} />
+            <MinutelyGraph data={this.props.minutelyData} getAttribute={this.getAttribute}/>
           }
         </div>
       </div>
